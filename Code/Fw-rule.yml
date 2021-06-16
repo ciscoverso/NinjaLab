@@ -7,7 +7,7 @@
       username: 'admin'
       password: 'P@ssw0rd'
       operation: 'add'
-      rule_name: 'Allow All .108'
+      rule_name: 'Allow All .107'
       description: 'Allow Traffic for Segmen .107'
       source_zone: ['L3-Trust']
       destination_zone: ['L3-Untrust']
