@@ -1,31 +1,21 @@
-[all:vars]
-# these defaults can be overridden for any group in the [group:vars] section
-ansible_connection=ansible.netcommon.network_cli
-ansible_user=admin
-
-[eos]
-veos01 ansible_host=10.1.101.28
-
-[eos:vars]
-ansible_become=yes
-ansible_become_method=enable
-ansible_network_os=arista.eos.eos
-ansible_user=admin
-ansible_password=P@ssw0rd
 
 ---
 - hosts: eos
   tasks:
   - name: Gather vlans facts from the device
-    arista.eos.eos_vlans:
+      ip_address: '10.1.101.28'
+      username: 'admin'
+      password: 'P@ssw0rd'
+   
+   arista.eos.eos_vlans:
      state: gathered
 
   - name: Merge given VLAN attributes with device configuration
     arista.eos.eos_vlans:
      config:
-      - vlan_id: 57
+      - vlan_id: 56
         state: active
-        name: fromansible
+        name: fromansible1
      state: merged
 
   - name: always save config to startup-config
