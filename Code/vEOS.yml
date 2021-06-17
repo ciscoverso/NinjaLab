@@ -1,10 +1,6 @@
 ---
 - hosts: eos
   tasks:
-      ip_address: '10.1.101.28'
-      username: 'admin'
-      password: 'P@ssw0rd'
-   
   - name: Gather vlans facts from the device
    arista.eos.eos_vlans:
      state: gathered
