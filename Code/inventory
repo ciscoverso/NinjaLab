@@ -1,0 +1,14 @@
+[all:vars]
+# these defaults can be overridden for any group in the [group:vars] section
+ansible_connection=ansible.netcommon.network_cli
+ansible_user=admin
+
+[eos]
+veos01 ansible_host=10.1.101.28
+
+[eos:vars]
+ansible_become=yes
+ansible_become_method=enable
+ansible_network_os=arista.eos.eos
+ansible_user=admin
+ansible_password=P@ssw0rd
